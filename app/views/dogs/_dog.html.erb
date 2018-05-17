@@ -1,0 +1,11 @@
+<div class = "con">
+<%= will_paginate @dogs %>
+<li id="Dog - <%= dog.id %>">
+  <span class = "name"><%=dog.name%></span>, 
+  <span class = "gender"><%=dog.gender%></span>,
+  <span class = "breed"><%=dog.breed%></span>, 
+  <span class = "age"><%=dog.age%></span> years old -- 
+  <%= link_to "delete", dog, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  
+</li>

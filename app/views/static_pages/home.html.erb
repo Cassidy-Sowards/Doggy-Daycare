@@ -1,0 +1,38 @@
+
+<% if logged_in?%>
+<div class = "con" align = "center">
+  <h1>Welcome back, <%= current_user.name %>, What Do You Want to Do?</h1>
+  <%= link_to "View my Profile", current_user, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Add a Dog", newdog_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Make a Reservation", newres_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-lg btn-primary" %>
+</div>
+
+<% elsif emplogged_in? == true  %>
+  <div class = "con" align = "center">
+    <h1>Hello, <%= current_employee.name %> What Do You Need to Do?</h1>
+    <% if current_employee.admin == true %>
+      <%= link_to "Create Employee", empcreate_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+
+<% else %>
+
+<div class="center jumbotron">
+  
+  <%= image_tag("logo.gif", :alt => "logo") %>
+  <h1>Welcome to Cassidy's Doggy Daycare</h1>
+
+  <h2>
+  Where all the good dogs go!
+  </h2>
+  <p>Ready to make a Reservation?</p>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+
+</div>
+
+<% end %>
+
+
+

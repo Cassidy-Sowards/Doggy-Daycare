@@ -1,0 +1,17 @@
+
+<div class = "con">
+  <b>Test</b><%=logged_in?%>
+<h1><%=@user.name%></h1>
+    <% if @user.dogs.any? %>
+      <h3>Dogs: (<%= @user.dogs.count %>)</h3>
+      <ol class="dogs">
+        <%= render @dogs %>
+      </ol>
+      <%= will_paginate @dogs %>
+    <% end %>
+  <h3>Reservations: (<%= @user.reservations.count %>)</h3>
+  <ol class = "reservations">
+    <%= render @reservations %>
+  </ol>
+  <%= will_paginate @reservations %>
+</div>

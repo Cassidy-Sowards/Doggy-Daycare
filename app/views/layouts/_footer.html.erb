@@ -1,0 +1,11 @@
+<footer class="footer">
+  <nav>
+    <ul>
+      <li><%= link_to "Credits", '#' %></li>
+      <lli><%= link_to "FAQ", '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <% if !current_employee.present? || current_user.present %>
+      <li><%= link_to "Employee Log-in", emplogin_path %></li>
+    </ul>
+  </nav>
+</footer>

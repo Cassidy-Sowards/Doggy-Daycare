@@ -1,0 +1,24 @@
+
+<% provide(:title, 'Sign up') %>
+
+<div class="con">
+<%= form_for(@dog) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+    
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+    
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+    
+    <%= f.label :age %>
+    <%= f.number_field :age, :step => 1 %>
+  <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>
+
+</div>

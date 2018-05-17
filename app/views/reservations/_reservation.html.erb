@@ -1,0 +1,7 @@
+<%= will_paginate @reservations %>
+<li id="Reservation - <%= reservation.id %>">
+  <span class = "dog"> <%=reservation.dog.name %></span>, 
+  <span class = "startdate"><%= reservation.startdate %></span> - <span class = "enddate"><%= reservation.enddate %></span>
+  <span class = "status"><b><%= reservation.status %></b></span> </br>
+  <span class = "report"><b>Report Desired?</b> <%=reservation.report %> </span>
+</li>

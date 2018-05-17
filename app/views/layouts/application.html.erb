@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= favicon_link_tag 'logo.gif' %>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
+    <%= link_to "Cassidy's Doggy Daycare", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", '/about' %></li>
+        <li><%= link_to "Rates", '/rates' %></li>
+        <% if logged_in? %>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li class="divider"></li>
+              <li>
+              <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+            </ul>
+           </li>
+        <% elsif current_employee.present? == true %>
+        <li><%= link_to "Employee Logout", emplogout_path, method: :delete %></li>
+        <% else %> 
+        <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+    </header>
+    <div class="container">
+            <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+      <footer class="footer">
+  <nav>
+    <ul>
+      <li><%= link_to "Credits", '/credits' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+        <li><%=link_to "Employee log in", emplogin_path %></li>
+    </ul>
+  </nav>
+</footer>
+    </div>
+    
+  </body>
+</html>

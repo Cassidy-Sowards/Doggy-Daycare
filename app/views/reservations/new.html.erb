@@ -1,0 +1,19 @@
+
+<% provide(:title, 'New Reservation') %>
+<div class="con">
+  <h1>Make a New Reservation</h1>
+<%= form_for(@reservation) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+   <% options = options_from_collection_for_select(@d, 'id', 'name') %>
+  <%= f.label :dog_id %> <%= f.select :dog_id,  options %>
+  <%= f.label :kennel_id %> <%= f.select :kennel_id, options_for_select(available_kennels) %>
+  <%= f.label :startdate %> <%= f.datetime_select :startdate, prompt: true %>
+  <%= f.label :enddate %> <%= f.datetime_select :enddate, prompt: true %>:
+  <p><b>Would you like to receive daily reports from our staff via email?</b></p> 
+  <%= f.check_box :report %>
+  
+  </br></br>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+</div>
